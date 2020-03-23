@@ -62,11 +62,33 @@ struct node* deletefront(struct node* root)
     }
     else
     {
+        cout<<"Deleting front node"<<endl;
         struct node* ptr,*temp;
         temp=root;
         ptr=temp->next;
         root=ptr;
         free(temp);
+        return root;
+    }
+}
+struct node* deleteend(struct node* root)
+{
+   if(root==NULL)
+   {
+       return NULL;
+   }
+    else
+    {
+        cout<<"Deleting last node"<<endl;
+        struct node* temp,*ptr;
+        temp=root;
+        while(temp->next->next!=NULL)
+        {
+            temp=temp->next;
+        }
+        ptr=temp->next;
+        temp->next=NULL;
+        free(ptr);
         return root;
     }
 }
@@ -76,5 +98,6 @@ int main()
     root=create();
     traverse(root);
     root=deletefront(root);
+    root=deleteend(root);
     return 0;
 }
