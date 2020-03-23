@@ -41,10 +41,33 @@ struct node* create()
 }
 void traverse(struct node* root)
 {
-    while(root!=NULL)
+    if(root==NULL)
     {
-        cout<<"Linked list data is "<<root->data<<endl;
-        root=root->next;
+        cout<<"Nothing to show"<<endl;
+    }
+    else
+    {
+        while(root!=NULL)
+        {
+            cout<<"Linked list data is "<<root->data<<endl;
+            root=root->next;
+        }
+    }
+}
+struct node* deletefront(struct node* root)
+{
+    if(root==NULL)
+    {
+        return NULL;
+    }
+    else
+    {
+        struct node* ptr,*temp;
+        temp=root;
+        ptr=temp->next;
+        root=ptr;
+        free(temp);
+        return root;
     }
 }
 int main()
@@ -52,5 +75,6 @@ int main()
     struct node* root=NULL;
     root=create();
     traverse(root);
+    root=deletefront(root);
     return 0;
 }
