@@ -92,12 +92,44 @@ struct node* deleteend(struct node* root)
         return root;
     }
 }
+void search(struct node* root)
+{
+    if(root==NULL)
+    {
+        cout<<"Linked is empty"<<endl;
+    }
+    else
+    {
+        int value;
+        cout<<"Enter value to searched in the list"<<endl;
+        cin>>value;
+        struct node* temp;
+        temp=root;
+        while(temp!=NULL)
+        {
+            if(temp->data==value)
+            {
+                cout<<"Found"<<endl;
+            }
+            else
+            {
+                temp=temp->next;
+            }
+        }
+        if(temp==NULL)
+        {
+            cout<<"Not found"<<endl;
+        }
+    }
+}
 int main()
 {
     struct node* root=NULL;
     root=create();
-    traverse(root);
-    root=deletefront(root);
-    root=deleteend(root);
+//     traverse(root);
+//     root=deletefront(root);
+//     root=deleteend(root);
+    search(root);
+    
     return 0;
 }
