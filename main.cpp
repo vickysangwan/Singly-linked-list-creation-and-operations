@@ -122,6 +122,45 @@ void search(struct node* root)
         }
     }
 }
+struct node* deleteany(struct node* root)
+{
+    if(root==NULL)
+    {
+        return NULL;
+    }
+    else
+    {
+        int pos;
+        cout<<"Enter position of node to be deleted"<<endl;
+        cin>>pos;
+        if(pos>size)
+        {
+            return root;
+        }
+        else
+        {
+            struct node* temp,*ptr;
+            temp=ptr=root;
+            for(int i=0;i<pos-1;i++)
+            {
+                ptr=temp;
+                temp=temp->next;
+            }
+            if(pos==1)
+            {
+                root=temp->next;
+                free(temp);
+            }
+            else
+            {
+                ptr->next=temp->next;
+                temp->next=NULL;
+                free(temp);
+            }
+            return root;
+        }
+    } 
+}
 int main()
 {
     struct node* root=NULL;
@@ -129,7 +168,7 @@ int main()
 //     traverse(root);
 //     root=deletefront(root);
 //     root=deleteend(root);
+//     root=deleteany(root);
     search(root);
     
     return 0;
-}
