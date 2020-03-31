@@ -4,4 +4,6 @@ Singly linked list operations
 2)Traversal                      
 3)Deletion (Front,last,any)                              
 4)Searching                                        
-5)Sorting
+5)Sorting                                                                     
+6)Remove Duplicates
+
