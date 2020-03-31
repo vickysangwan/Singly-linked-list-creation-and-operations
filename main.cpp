@@ -163,6 +163,10 @@ struct node* deleteany(struct node* root)
 }
 struct node* removeDuplicates(struct node* head)
 {
+    if(head==NULL)
+    {
+        return NULL;
+    }
     struct node* temp=head,*ptr;
     while(temp->next!=NULL)
     {
