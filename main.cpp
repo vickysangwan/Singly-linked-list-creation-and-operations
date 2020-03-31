@@ -161,6 +161,23 @@ struct node* deleteany(struct node* root)
         }
     } 
 }
+struct node* removeDuplicates(struct node* head)
+{
+    struct node* temp=head,*ptr;
+    while(temp->next!=NULL)
+    {
+        if(temp->data==temp->next->data)
+        {
+            ptr=temp->next;
+            temp->next=ptr->next;
+            free(ptr);
+        }
+        else{
+            temp=temp->next;
+        }
+    }
+    return head;
+}
 int main()
 {
     struct node* root=NULL;
@@ -169,6 +186,7 @@ int main()
 //     root=deletefront(root);
 //     root=deleteend(root);
 //     root=deleteany(root);
+//     root=removeDuplicates(root)
     search(root);
     
     return 0;
